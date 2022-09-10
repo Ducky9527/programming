@@ -55,7 +55,7 @@ for i in range(len(lines)):
         URL = lines[i].strip("\n")
         result = requests.get(URL)
         print(result.content, file = f)    
-        f.close
+        f.close()
         
         #soup = BeautifulSoup(result.text, "html.parser")
 
