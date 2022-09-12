@@ -25,4 +25,6 @@ for i in range(7):
             party = legislator.find("img")["alt"].rstrip("徽章")
             legislators_df.loc[len(legislators_df.index)] = [name, party, personal_page_path]
 
-    print(legislators_df, file = f)
+        
+
+        print(legislators_df.to_string(), file = f)
