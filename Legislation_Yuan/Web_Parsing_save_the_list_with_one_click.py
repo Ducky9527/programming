@@ -73,6 +73,9 @@ for link in url:
 
     legislators = section.find_all("div", {"class": "inner"})
     legislators_df = pd.DataFrame(columns = ['name', 'party', 'url'])
+    personal_page = []
+
+
 
 
     for legislator in legislators:
@@ -81,9 +84,30 @@ for link in url:
         personal_page_path = 'https://www.ly.gov.tw' + legislator.find("a")["href"]
         party = legislator.find("img")["alt"].rstrip("徽章")
         legislators_df.loc[len(legislators_df.index)] = [name, party, personal_page_path]
-    legislators_df.to_csv(f"Legislation_Yuan/Data/LY_list_{i}.csv", index = False)
+        personal_page.append(personal_page_path)
+    
+    education = []
 
-    time.sleep(5)
+    for pg in personal_page:
+        my_header = { 
+        'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)', 
+        'Connection': 'keep-alive'}
+        response = requests.get(pg, headers = my_header)
+        response.encoding ='utf-8' 
+        soup = BeautifulSoup(response.text, "html.parser")
+        list = soup.find("div", class_="col-sm-8")
+        narrow = list.find("ul")
+        education.append(narrow.text)
+        
+    
+    legislators_df['education'] = education
+    legislators_df = legislators_df.rename(columns={'personal_page_path' : 'url'})
+    legislators_df = legislators_df[['name', 'party', 'education', 'url']]
+
+    
+    legislators_df.to_csv(f"Legislation_Yuan/Data/LY_list_education_{i}.csv", index = False)
+    time.sleep(1)
+
     
 
    
