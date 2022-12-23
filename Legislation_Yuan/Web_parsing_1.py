@@ -30,15 +30,13 @@ list = search_list.find_all('a')
 #開一個檔案準備把抓出來的資料寫進去
 f = open('Legislation_Yuan/Data/URL.txt', 'w' )
 
-#先看一下list裡面抓出來的東西是怎麼存的，確認出list中的東東都是「連結＋文字檔」
+#先看一下list裡面抓出來的東西是怎麼存的，確認出list中的東東都是「連結＋文字檔」，看完記得就刪掉
 #print(len(list))
 
 #利用for迴圈把list中的東東一個一個print出來到指定的檔案file = f 中
 for i in range(len(list)):
     print(list[i].text, file=f)
-    print('https://www.ly.gov.tw'+list[i]["href"],file=f)
+    print(list[i],file=f)
 
-#把檔案關掉
-f.close()
 
  

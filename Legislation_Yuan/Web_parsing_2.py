@@ -1,3 +1,4 @@
+#把網頁整個抓下來存成txt檔
 import requests
 from bs4 import BeautifulSoup
 
