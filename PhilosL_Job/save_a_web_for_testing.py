@@ -19,16 +19,4 @@ soup = BeautifulSoup(response.text, 'html.parser')
 #the benefit of doing this is that we will not keep disturbing the site while we do something stupid
 
 f = open('PhilosL_Job/Data/WebTest.txt', 'w')
-print(soup, file = f)
-
-
-#title = soup.find('table', class_='emphasizedgroup')
-#title_extract = soup.find_all('h2')
-#print(title_extract)
-#extract = soup.find('table', class_='tableframe')
-#text = extract.find_all('a')
-
-#for i in range(len(text)):
-#    print(text[i]['href'])
-#    print(text[i].text)
-    
+print(soup, file = f)    
