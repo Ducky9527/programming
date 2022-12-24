@@ -16,23 +16,26 @@ soup = BeautifulSoup(response.text, 'html.parser')
 archieve_list = soup.find(class_='normalgroup')
 
 
+#Get the URLs
+
+####option 1 - only print out the URLs
+for a in archieve_list.find_all('a', href=True):
+    print('https://listserv.liv.ac.uk/'+ a['href'])
+
+
+
+###option 2 - print out the URLs and save them in a separate txt file so that we will not need to visit the website to get the URLs when we want to use them to do stuff next time. 
+
+#open a new file in the designited location, and specify that you are going to 'write' something into the file by ''w'
+
 #f = open('PhilosL_Job/Data/URL_List.txt', 'w')
 
-for a in archieve_list.find_all('a', href=True):
-    open_list = 'https://listserv.liv.ac.uk/'+ a['href']
 
-    response = requests.get('open_list')
+#for a in archieve_list.find_all('a', href=True):
 
-        sp = BeautifulSoup(response.text, 'html.parser')
-        extract = soup.find('table', class_='tableframe')
-        text = extract.find_all('a')
+##specify that you'd like to save the texts in which file. in this case, file = f
 
-        for i in range(len(text)):
-            print(text[i].text)
-            print(text[i]['href'])
-
-    #if wish to save to a separate file, then
-    #print('https://listserv.liv.ac.uk/'+ a['href'], file = f)
+#    print('https://listserv.liv.ac.uk/'+ a['href'], file = f)
 
 
 

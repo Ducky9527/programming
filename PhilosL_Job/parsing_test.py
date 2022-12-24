@@ -14,13 +14,13 @@ headers = my_header)
 
 soup = BeautifulSoup(response.text, 'html.parser')
 
-title = soup.find('table', class_='emphasizedgroup')
-title_extract = soup.find_all('h2')
-print(title_extract)
-#extract = soup.find('table', class_='tableframe')
-#text = extract.find_all('a')
+#title = soup.find('table', class_='emphasizedgroup')
+#title_extract = soup.find_all('h2')
+#print(title_extract)
+extract = soup.find('table', class_='tableframe')
+text = extract.find_all('a')
 
-#for i in range(len(text)):
-#    print(text[i]['href'])
-#    print(text[i].text)
+for i in range(len(text)):
+    print(text[i]['href'])
+    print(text[i].text)
     
