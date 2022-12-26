@@ -7,6 +7,7 @@
 #list.remove()
 #list.pop()
 #list.index()
+#create an empty list, e.g. data = []
 
 #This is an unsuccessful attempt with "for loop"
 
