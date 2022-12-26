@@ -1,3 +1,13 @@
+#Remove all the duplicates from a list
+
+#Tools permitted to use
+#if, else, and basic booleans
+#for and while loop
+#list.append()
+#list.remove()
+#list.pop()
+#list.index()
+
 #This is an unsuccessful attempt with "for loop"
 
 numb = [1, 2, 1, 3, 2, 1]
