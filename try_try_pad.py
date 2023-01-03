@@ -74,3 +74,5 @@ while x < len(numb) - 1:
     
     x += 1 #finished the comparision with the rest of the list, move to the second number in the list. Let the Programme do the comparision again.
     y = x #reset the value of y, otherwise the condition of the second while (the while about the value y) will not be satisfied. Remember, always remain one place behind the 'unmoved' number. So, don't reset the value of y as 0, but as x. It will be incremented at the beginning of next while loop.
+
+    
