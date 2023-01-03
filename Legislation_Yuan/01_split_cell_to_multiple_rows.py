@@ -5,7 +5,7 @@ import csv
 
 df = pd.read_csv('Legislation_Yuan/test_file/LY_test_edu.csv')
 
-
+#####option 1
 def chainer(s):
     return list(chain.from_iterable(s.str.split('\n')))
 
@@ -22,7 +22,7 @@ res = pd.DataFrame({'name': np.repeat(df['name'], lens),
 res.to_csv('Legislation_Yuan/test_file/LY_test_edu_splited.csv', index=False)
 
 
-
+#####option 2
 #why this code doesn't work!?
 #I modified it from stackoverflow...
 #https://stackoverflow.com/questions/50731229/split-cell-into-multiple-rows-in-pandas-dataframe
@@ -30,7 +30,7 @@ res.to_csv('Legislation_Yuan/test_file/LY_test_edu_splited.csv', index=False)
 df = df.set_index(['education']).apply(lambda x: x.str.split('\n').explode()).reset_index()
 
 
-#this block is to try to see what went wrong with the code for exlosion(?)
+#this block is to try to see what went wrong with option 1
 #I can see that the problem might have something to do with the fact that there are one more \n than I had expected. But, still, why did it have two extra rows!?!?!?!
 with open('Legislation_Yuan/test_file/LY_test_edu.csv', 'r') as f:
     reader = csv.reader(f)
