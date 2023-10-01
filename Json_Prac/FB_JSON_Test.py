@@ -1,7 +1,7 @@
 import json
 
 # Load the JSON file
-f = open('/Users/huangpei-hua/Workspace/programming/Json_Prac/Json_text.json', 'r')
+f = open('/programming/Json_Prac/Json_text.json', 'r')
 
 raw_data = f.read()
 
