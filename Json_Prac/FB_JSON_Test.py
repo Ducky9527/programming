@@ -9,8 +9,6 @@ j_data = json.loads(raw_data)
 check_length = len(j_data)
 #print(check_length)
 
-empty_dict = {}
-
 n = 0
 for i in range(len(j_data)):
     what = j_data[i]
